@@ -4,48 +4,49 @@ local mix = require("vesper.utils").mix
 local colors = {
 	-- background colors
 	white = "#FFFFFF",
-	black = "#0a0a0a",
-	bg = "#0a0a0a", -- editor.background
-	bgDark = "#0a0a0a", -- titleBar.activeBackground
+	black = "#0A0A0A",
+	bg = "#0A0A0A", -- editor.background
+	bgDark = "#0A0A0A", -- titleBar.activeBackground
 	bgDarker = "#222222", -- list.activeSelectionBackground
-	bgFloat = "#0a0a0a", -- editorWidget.background
+	bgFloat = "#0A0A0A", -- editorWidget.background
 	bgOption = "#222222", -- input.background
 
-	fg = "#dbd7caee", -- editor.foreground
-	fgAlt = "#bfbaaa", -- titleBar.activeForeground
-	fgCommand = "#c391e6", -- focusBorder
-	fgInactive = "#dedcd550", -- activityBar.inactiveForeground
-	fgDisabled = "#dedcd550", -- gitDecoration.ignoredResourceForeground
-	fgLineNr = "#dedcd550", -- editorLineNumber.foreground
+	-- foreground colors
+	fg = "#DBD7CA", -- editor.foreground (sin alpha)
+	fgAlt = "#BFBAAA", -- titleBar.activeForeground
+	fgCommand = "#C391E6", -- focusBorder
+	fgInactive = "#DEDCD5", -- activityBar.inactiveForeground (sin alpha)
+	fgDisabled = "#DEDCD5", -- gitDecoration.ignoredResourceForeground
+	fgLineNr = "#DEDCD5", -- editorLineNumber.foreground
 	fgSelection = "#404040", -- editor.selectionBackground
-	fgSelectionInactive = "#262626",
+	fgSelectionInactive = "#262626", -- editor.inactiveSelectionBackground
 
 	-- border colors
-	border = "222222",
-	borderFocus = "c391e6",
-	borderDarker = "#99FFE4",
+	border = "#222222", -- dropdown.border
+	borderFocus = "#C391E6", -- focusBorder
+	borderDarker = "#222222", -- editorGroupHeader.tabsBorder
 
 	-- ui colors
-	greenLight = "#16a34a", -- terminal.ansiGreen
-	red = "#fca5a5", -- errorForeground
-	purple = "#c391e6", -- button.background
-	redDark = "#fca5a5", -- terminal.ansiRed
-	orange = "#eab308", -- terminal.ansiYellow
-	primary = "#c391e6", -- focusBorder (main accent color)
-	comment = "#dedcd590", -- descriptionForeground
-	orangeLight = "#f59e0b", -- terminal.ansiBrightYellow
-	green = "#16a34a", -- gitDecoration.addedResourceForeground
-	yellowDark = "#eab308", -- terminal.ansiYellow
-	purpleDark = "#c391e6", -- textLink.foreground
-	symbol = "#06b6d4", -- terminal.ansiBrightCyan
-	secondary = "#bfbaaa", -- statusBar.foreground
+	greenLight = "#16A34A", -- terminal.ansiGreen
+	red = "#FCA5A5", -- errorForeground
+	purple = "#C391E6", -- button.background
+	redDark = "#FCA5A5", -- terminal.ansiRed
+	orange = "#EAB308", -- terminal.ansiYellow
+	primary = "#C391E6", -- focusBorder (main accent color)
+	comment = "#DEDCD5", -- descriptionForeground (sin alpha)
+	orangeLight = "#F59E0B", -- terminal.ansiBrightYellow
+	green = "#16A34A", -- gitDecoration.addedResourceForeground
+	yellowDark = "#EAB308", -- terminal.ansiYellow
+	purpleDark = "#C391E6", -- textLink.foreground
+	symbol = "#06B6D4", -- terminal.ansiBrightCyan
+	secondary = "#BFBAAA", -- statusBar.foreground
 	terminalbrightblack = "#323232", -- terminal.ansiBlack
 
 	-- diagnostic colors
-	error = "#fca5a5", -- editorError.foreground
-	warn = "#f59e0b", -- editorWarning.foreground
-	info = "#0369a1", -- editorInfo.foreground
-	hint = "#16a34a", -- editorHint.foreground
+	error = "#FCA5A5", -- editorError.foreground
+	warn = "#F59E0B", -- editorWarning.foreground
+	info = "#0369A1", -- editorInfo.foreground
+	hint = "#16A34A", -- editorHint.foreground
 }
 
 return colors
