@@ -4,62 +4,48 @@ local mix = require("vesper.utils").mix
 local colors = {
 	-- background colors
 	white = "#FFFFFF",
-	black = "#0a0a0a",
-	bg = "#0a0a0a", -- editor.background
-	bgDark = "#0a0a0a", -- titleBar.activeBackground
-	bgDarker = "#222222", -- list.activeSelectionBackground
-	bgFloat = "#0a0a0a", -- editorWidget.background
-	bgOption = "#222222", -- input.background
+	black = "#343434",
+	bg = "#101010",
+	bgDark = "#161616",
+	bgDarker = "#232323",
+	bgFloat = "#282828",
+	bgOption = "#343434",
 
-	-- foreground colors
-	fg = "#dbd7caee", -- editor.foreground
-	fgAlt = "#bfbaaa", -- titleBar.activeForeground
-	fgCommand = "#c391e6", -- focusBorder
-	fgInactive = "#dedcd550", -- activityBar.inactiveForeground
-	fgDisabled = "#dedcd550", -- gitDecoration.ignoredResourceForeground
-	fgLineNr = "#dedcd550", -- editorLineNumber.foreground
-	fgSelection = "#404040", -- editor.selectionBackground
-	fgSelectionInactive = "#262626", -- editor.inactiveSelectionBackground
+	fg = mix("#FFFFFF", "#000000", math.abs(0.80)),
+	fgAlt = "#FEFEFE",
+	fgCommand = "#FEFEFE",
+	fgInactive = "#65737E",
+	fgDisabled = "#505050",
+	fgLineNr = "#505050",
+	fgSelection = "#343434",
+	fgSelectionInactive = "#505050",
 
 	-- border colors
-	border = "#222222", -- dropdown.border
-	borderFocus = "#c391e6", -- focusBorder
-	borderDarker = "#222222", -- editorGroupHeader.tabsBorder
+	border = "#505050",
+	borderFocus = "#65737E",
+	borderDarker = "#A0A0A0",
 
 	-- ui colors
-	greenLight = "#16a34a", -- terminal.ansiGreen
-	red = "#fca5a5", -- errorForeground
-	purple = "#c391e6", -- button.background
-	redDark = "#fca5a5", -- terminal.ansiRed
-	orange = "#eab308", -- terminal.ansiYellow
-	primary = "#c391e6", -- focusBorder (main accent color)
-	comment = "#dedcd590", -- descriptionForeground
-	orangeLight = "#f59e0b", -- terminal.ansiBrightYellow
-	green = "#16a34a", -- gitDecoration.addedResourceForeground
-	yellowDark = "#eab308", -- terminal.ansiYellow
-	purpleDark = "#c391e6", -- textLink.foreground
-	symbol = "#06b6d4", -- terminal.ansiBrightCyan
-	secondary = "#bfbaaa", -- statusBar.foreground
-	terminalbrightblack = "#323232", -- terminal.ansiBlack
+	greenLight = mix("#99FFE4", "#000000", math.abs(0.85)),
+	red = "#FF8080",
+	purple = "#FFCFA8",
+	redDark = "#FF8080",
+	orange = "#FFCFA8",
+	primary = "#A0A0A0",
+	comment = mix("#8b8b8b", "#000000", math.abs(0.90)),
+	orangeLight = "#FFCFA8",
+	green = mix("#99FFE4", "#000000", math.abs(0.85)),
+	yellowDark = "#FFC799",
+	purpleDark = mix("#65737E", "#000000", math.abs(0.80)),
+	symbol = "#65737E",
+	secondary = "#FFFFFF",
+	terminalbrightblack = "#343434",
 
 	-- diagnostic colors
-	error = "#fca5a5", -- editorError.foreground
-	warn = "#f59e0b", -- editorWarning.foreground
-	info = "#0369a1", -- editorInfo.foreground
-	hint = "#16a34a", -- editorHint.foreground
-
-	-- Additional colors from Vesper Purple
-	activeBorder = "#c391e6", -- tab.activeBorderTop
-	highlight = "#c391e6", -- list.highlightForeground
-	lineHighlight = "#222222", -- editor.lineHighlightBackground
-	indentGuide = "#ffffff15", -- editorIndentGuide.background
-	indentGuideActive = "#ffffff30", -- editorIndentGuide.activeBackground
-	whitespace = "#ffffff15", -- editorWhitespace.foreground
-	findMatch = "#eab30810", -- editor.findMatchBackground
-	findMatchHighlight = "#eab30820", -- editor.findMatchHighlightBackground
-	bracketMatch = "#4d937520", -- editorBracketMatch.background
-	diffAdd = "#4d937550", -- diffEditor.insertedTextBackground
-	diffDelete = "#ab595950", -- diffEditor.removedTextBackground
+	error = "#FF8080",
+	warn = "#FFC799",
+	info = "#99FFE4",
+	hint = "#65737E",
 }
 
 return colors
