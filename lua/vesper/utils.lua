@@ -1,39 +1,82 @@
 local M = {}
 
--- hex_to_rgb (hex string) -> table (rgb) @params hex
-local function hex_to_rgb(hex)
-  local hex_type = '[abcdef0-9][abcdef0-9]'
-  local pat = '^#(' .. hex_type .. ')(' .. hex_type .. ')(' .. hex_type .. ')$'
-  hex = string.lower(hex)
+function M.setup()
+	local colors = {
+		-- Copia aquí el objeto colors de arriba
+	}
 
-  assert(string.find(hex, pat) ~= nil, 'hex_to_rgb: invalid hex: ' .. tostring(hex))
+	local theme = {
+		-- Grupos de highlights
+		Normal = { fg = colors.fg, bg = colors.bg },
+		NormalFloat = { fg = colors.fg, bg = colors.bgFloat },
+		Comment = { fg = colors.comment, italic = true },
 
-  local red, green, blue = string.match(hex, pat)
-  return { tonumber(red, 16), tonumber(green, 16), tonumber(blue, 16) }
-end
+		-- Línea de números
+		LineNr = { fg = colors.fgLineNr },
+		CursorLineNr = { fg = colors.fgAlt, bold = true },
 
--- mix color (hex string, hex string, number) -> string (hex) @params fg, bg, alpha
-function M.mix(fg, bg, alpha)
-  bg = hex_to_rgb(bg)
-  fg = hex_to_rgb(fg)
+		-- Selección
+		Visual = { bg = colors.fgSelection },
+		VisualNOS = { bg = colors.fgSelectionInactive },
 
-  local blendChannel = function(i)
-    local ret = (alpha * fg[i] + ((1 - alpha) * bg[i]))
-    return math.floor(math.min(math.max(0, ret), 255) + 0.5)
-  end
+		-- Búsqueda
+		Search = { bg = colors.findMatch },
+		IncSearch = { bg = colors.findMatchHighlight },
 
-  return string.format('#%02X%02X%02X', blendChannel(1), blendChannel(2), blendChannel(3))
-end
+		-- Diagnósticos
+		DiagnosticError = { fg = colors.error },
+		DiagnosticWarn = { fg = colors.warn },
+		DiagnosticInfo = { fg = colors.info },
+		DiagnosticHint = { fg = colors.hint },
 
--- shade color (hex string, number, base) -> string (hex) @params color, value, base
-function M.shade(color, value, base)
-  if base == nil then
-    base = "#ffffff"
+		-- Sintaxis
+		String = { fg = colors.greenLight },
+		Number = { fg = colors.orange },
+		Boolean = { fg = colors.orange },
+		Function = { fg = colors.purple },
+		Identifier = { fg = colors.purpleDark },
+		Keyword = { fg = colors.purple, italic = true },
+		Operator = { fg = colors.symbol },
+		Type = { fg = colors.primary },
+		Special = { fg = colors.purple },
 
-    return M.mix(color, base, math.abs(value))
-  end
+		-- Pestañas
+		TabLineSel = { fg = colors.fg, bg = colors.bg, bold = true },
+		TabLine = { fg = colors.fgInactive, bg = colors.bgDark },
+		TabLineFill = { bg = colors.bgDark },
 
-  return M.mix(color, base, math.abs(value))
+		-- Barra de estado
+		StatusLine = { fg = colors.secondary, bg = colors.bgDark },
+		StatusLineNC = { fg = colors.fgInactive, bg = colors.bgDark },
+
+		-- Borde de ventana
+		WinSeparator = { fg = colors.border, bg = colors.bg },
+
+		-- Cursor
+		CursorLine = { bg = colors.lineHighlight },
+		CursorColumn = { bg = colors.lineHighlight },
+
+		-- Indentación
+		Whitespace = { fg = colors.whitespace },
+		IndentBlanklineChar = { fg = colors.indentGuide },
+		IndentBlanklineContextChar = { fg = colors.indentGuideActive },
+
+		-- Coincidencia de corchetes
+		MatchParen = { bg = colors.bracketMatch, bold = true },
+
+		-- Diffs
+		DiffAdd = { bg = colors.diffAdd },
+		DiffDelete = { bg = colors.diffDelete },
+		DiffChange = { bg = colors.bgOption },
+		DiffText = { bg = colors.bgDarker },
+
+		-- Más grupos según necesites...
+	}
+
+	-- Aplicar los highlights
+	for group, styles in pairs(theme) do
+		vim.api.nvim_set_hl(0, group, styles)
+	end
 end
 
 return M
