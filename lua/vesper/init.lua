@@ -266,8 +266,8 @@ local function set_groups()
 		["@error"] = { link = "Error" },
 		["@warning"] = { link = "WarningMsg" },
 		["@info"] = { fg = colors.green },
-    ["@markup.link.label"] = { underline = false },
-    ["@none"] = { fg = colors.white },
+		["@markup.link.label"] = { underline = false },
+		["@none"] = { fg = colors.white },
 
 		-- Specific languages
 		-- overrides
@@ -325,7 +325,7 @@ function theme.colorscheme()
 
 	vim.g.VM_theme_set_by_colorscheme = true -- Required for Visual Multi
 	vim.o.termguicolors = true
-	vim.g.colors_name = "vesper"
+	vim.g.colors_name = "vesperPurple"
 
 	set_terminal_colors()
 	set_groups()
