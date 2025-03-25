@@ -1,13 +1,13 @@
 <div align="center">
 
-# Vesper
+# Angelic nvim
 
 Port of the VS Code theme, [Vesper](https://github.com/raunofreiberg/vesper)
 
 <br/>
 <br/>
 
-![preview](./assets/preview.png)
+![preview](./assets/angelic.png)
 
 <br/>
 <br/>
@@ -19,21 +19,27 @@ Port of the VS Code theme, [Vesper](https://github.com/raunofreiberg/vesper)
 1. Using `Lazy`:
 
 ```lua
-{ 'datsfilipe/vesper.nvim' },
+  "sponkurtus2/angelic.nvim",
+  lazy = false,
+  priority = 1000,
+  config = function()
+    require("angelic").setup({})
+    vim.cmd.colorscheme("angelic")
+  end,
 ```
 
 2. Using `Packer`:
 
 ```lua
-use 'datsfilipe/vesper.nvim'
+use 'sponkurtus2/angelic.nvim'
 ```
 
 ## Configuration
 
-To configure the plugin, you can call require('vesper').setup({}), passing the table with the values in it. The following are the **defaults**:
+To configure the plugin, you can call require('angelic').setup({}), passing the table with the values in it. The following are the **defaults**:
 
 ```lua
-require('vesper').setup({
+require('angelic').setup({
     transparent = false, -- Boolean: Sets the background to transparent
     italics = {
         comments = true, -- Boolean: Italicizes comments
@@ -59,9 +65,13 @@ To use the theme with [bufferline.nvim](https://github.com/akinsho/bufferline.nv
 
 ```lua
 require('bufferline').setup({
-    highlights = require('vesper').bufferline.highlights,
+    highlights = require('angelic').bufferline.highlights,
 })
 ```
+
+## Why this colors?
+You may be wondering why the colors changed a lot, and well, the colors are because of what I see on my girlfriend.
+She's a bit of this colors, and you can see it on her outfits, and even on her personality.
 
 ## Contributing
 
