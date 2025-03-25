@@ -1,5 +1,5 @@
-local colors = require("vesper.colors")
-local config = require("vesper.config")
+local colors = require("lua.angelic.colors")
+local config = require("lua.angelic.config")
 local theme = {}
 
 local bg = config.transparent and "NONE" or colors.bg

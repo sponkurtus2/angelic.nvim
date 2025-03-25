@@ -42,7 +42,17 @@ vim.opt.backup = false
 vim.opt.undofile = true
 vim.opt.shell = "zsh"
 vim.opt.belloff = "all"
-vim.g.mapleader = ' '
+vim.g.mapleader = " "
+
+-- Grupos específicos para PHP/Laravel (como JobFactory.php)
+vim.api.nvim_set_hl(0, "@constructor.php", { fg = colors.purple, bold = true }) -- Clases (UserFactory)
+vim.api.nvim_set_hl(0, "@method.php", { fg = colors.greenLight }) -- Métodos (definition)
+vim.api.nvim_set_hl(0, "@function.builtin.php", { fg = colors.orange }) -- Funciones (fake())
+vim.api.nvim_set_hl(0, "@property.php", { fg = colors.symbol }) -- Propiedades ($password)
+vim.api.nvim_set_hl(0, "@string.php", { fg = colors.string }) -- Strings
+vim.api.nvim_set_hl(0, "@keyword.php", { fg = colors.keyword, italic = true }) -- Keywords (public, return)
+vim.api.nvim_set_hl(0, "@operator.php", { fg = colors.operator }) -- Operadores (=>)
+vim.api.nvim_set_hl(0, "@comment.php", { fg = colors.comment, italic = true }) -- Comentarios
 
 local lazypath = vim.fn.stdpath("data") .. "/development/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -61,109 +71,108 @@ require("lazy").setup({
 	root = vim.fn.stdpath("data") .. "/min/lazy",
 	spec = {
 		"nvim-telescope/telescope.nvim",
-    { "lewis6991/gitsigns.nvim", opts = {} },
+		{ "lewis6991/gitsigns.nvim", opts = {} },
 		"nvim-lua/plenary.nvim",
-    {
-      "echasnovski/mini.hipatterns",
-      version = false,
-      event = 'VeryLazy',
-      config = function()
-        local hipatterns = require 'mini.hipatterns'
+		{
+			"echasnovski/mini.hipatterns",
+			version = false,
+			event = "VeryLazy",
+			config = function()
+				local hipatterns = require("mini.hipatterns")
 
-        hipatterns.setup {
-          highlighters = {
-            hex_color = hipatterns.gen_highlighter.hex_color(),
-          }
-        }
-      end,
-    },
-    {
-      'nvim-treesitter/nvim-treesitter',
-      lazy = false,
-      config = function()
-        local ts = require 'nvim-treesitter.configs'
+				hipatterns.setup({
+					highlighters = {
+						hex_color = hipatterns.gen_highlighter.hex_color(),
+					},
+				})
+			end,
+		},
+		{
+			"nvim-treesitter/nvim-treesitter",
+			lazy = false,
+			config = function()
+				local ts = require("nvim-treesitter.configs")
 
-        ts.setup {
-          highlight = {
-            enable = true,
-            disable = {},
-          },
-          indent = {
-            enable = true,
-          },
-          ensure_installed = {
-            'lua',
-            'vim',
-            'bash',
-            'javascript',
-            'typescript',
-            'tsx',
-            'html',
-            'css',
-            'json',
-            'go',
-            'rust',
-          },
-          autotag = {
-            enable = true,
-          },
-        }
+				ts.setup({
+					highlight = {
+						enable = true,
+						additional_vim_regex_highlighting = false,
+						disable = {},
+					},
+					indent = {
+						enable = true,
+					},
+					ensure_installed = {
+						"lua",
+						"vim",
+						"bash",
+						"html",
+						"css",
+						"json",
+						"go",
+						"rust",
+						"php",
+					},
+					autotag = {
+						enable = true,
+					},
+				})
 
-        local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
-        parser_config.tsx.filetype_to_parsername = { 'javascript', 'typescript.tsx' }
-      end,
-      build = function()
-        local ts_update = require('nvim-treesitter.install').update { with_sync = true }
-        ts_update()
-      end,
-      dependencies = {
-        {
-          'nvim-treesitter/nvim-treesitter-context',
-          opts = {},
-        },
-        'nvim-treesitter/playground',
-      },
-    },
-    {
-      'nvim-lualine/lualine.nvim',
-      event = 'VimEnter',
-      dependencies = { 'nvim-tree/nvim-web-devicons' },
-      opts = {
-        options = {
-          icons_enabled = true,
-          colorscheme = "vesper",
-        },
-      },
-    },
-    {
-      'NeogitOrg/neogit',
-      cmd = 'Neogit',
-      dependencies = {
-        'nvim-lua/plenary.nvim',
-        'nvim-telescope/telescope.nvim',
-      },
-      opts = {},
-    },
-  },
+				local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+				parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }
+			end,
+			build = function()
+				local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+				ts_update()
+			end,
+			dependencies = {
+				{
+					"nvim-treesitter/nvim-treesitter-context",
+					opts = {},
+				},
+				"nvim-treesitter/playground",
+			},
+		},
+		{
+			"nvim-lualine/lualine.nvim",
+			event = "VimEnter",
+			dependencies = { "nvim-tree/nvim-web-devicons" },
+			opts = {
+				options = {
+					icons_enabled = true,
+					colorscheme = "vesper",
+				},
+			},
+		},
+		{
+			"NeogitOrg/neogit",
+			cmd = "Neogit",
+			dependencies = {
+				"nvim-lua/plenary.nvim",
+				"nvim-telescope/telescope.nvim",
+			},
+			opts = {},
+		},
+	},
 })
 
-vim.keymap.set('i', '<C-c>', '<Esc>', opts)
-vim.keymap.set('n', '<leader>gg', ':Neogit<Return>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>e', ':Explore<Return><Return>', opts)
-vim.keymap.set('v', '<', '<gv', opts)
-vim.keymap.set('v', '>', '>gv', opts)
-vim.keymap.set('n', '>', ':tabnext<Return>', opts)
-vim.keymap.set('n', '<', ':tabprev<Return>', opts)
-local theme = require('telescope.themes').get_dropdown {}
-vim.keymap.set('n', ';f', function()
-  require 'telescope.builtin'.find_files(vim.tbl_deep_extend('force', {
-    prompt_prefix = '   ',
-    no_ignore = false,
-    hidden = true,
-  }, theme))
+vim.keymap.set("i", "<C-c>", "<Esc>", opts)
+vim.keymap.set("n", "<leader>gg", ":Neogit<Return>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>e", ":Explore<Return><Return>", opts)
+vim.keymap.set("v", "<", "<gv", opts)
+vim.keymap.set("v", ">", ">gv", opts)
+vim.keymap.set("n", ">", ":tabnext<Return>", opts)
+vim.keymap.set("n", "<", ":tabprev<Return>", opts)
+local theme = require("telescope.themes").get_dropdown({})
+vim.keymap.set("n", ";f", function()
+	require("telescope.builtin").find_files(vim.tbl_deep_extend("force", {
+		prompt_prefix = "   ",
+		no_ignore = false,
+		hidden = true,
+	}, theme))
 end, opts)
 
-local theme = require("vesper/init")
+local theme = require("angelic/init")
 
 theme.setup({
 	transparent = false,

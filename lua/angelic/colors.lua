@@ -1,5 +1,5 @@
-local config = require("vesper.config")
-local mix = require("vesper.utils").mix
+local config = require("angelic.config")
+local mix = require("angelic.utils").mix
 
 local colors = {
 	-- background colors

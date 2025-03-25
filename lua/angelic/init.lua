@@ -1,8 +1,8 @@
-local colors = require("vesper.colors")
-local config = require("vesper.config")
-local utils = require("vesper.utils")
-local bufferline = require("vesper.integrations.bufferline")
-local cmp = require("vesper.integrations.cmp")
+local colors = require("angelic.colors")
+local config = require("angelic.config")
+local utils = require("angelic.utils")
+local bufferline = require("angelic.integrations.bufferline")
+local cmp = require("angelic.integrations.cmp")
 local theme = {} -- teste
 
 local function set_terminal_colors()
@@ -326,7 +326,7 @@ end
 
 function theme.colorscheme()
 	if vim.version().minor < 8 then
-		vim.notify("Neovim 0.8+ is required for vesper colorscheme", vim.log.levels.ERROR, { title = "Min Theme" })
+		vim.notify("Neovim 0.8+ is required for angelic colorscheme", vim.log.levels.ERROR, { title = "Min Theme" })
 		return
 	end
 
@@ -337,7 +337,7 @@ function theme.colorscheme()
 
 	vim.g.VM_theme_set_by_colorscheme = true -- Required for Visual Multi
 	vim.o.termguicolors = true
-	vim.g.colors_name = "vesperPurple"
+	vim.g.colors_name = "angelic"
 
 	set_terminal_colors()
 	set_groups()
@@ -351,15 +351,15 @@ vim.api.nvim_set_hl(0, "@type.class.php", { fg = "#FF79C6" })
 vim.api.nvim_set_hl(0, "phpRegion", { fg = "#FF79C6", bold = false }) -- Rosa suave para clases
 
 -- Asegúrate de tener esto en tu configuración
-require("nvim-treesitter.configs").setup({
-	highlight = {
-		enable = true,
-		additional_vim_regex_highlighting = false,
-		custom_captures = {
-			["constructor.php"] = "@constructor.php",
-			["type.php"] = "@type.php",
-		},
-	},
-})
+-- require("nvim-treesitter.configs").setup({
+-- 	highlight = {
+-- 		enable = true,
+-- 		additional_vim_regex_highlighting = false,
+-- 		custom_captures = {
+-- 			["constructor.php"] = "@constructor.php",
+-- 			["type.php"] = "@type.php",
+-- 		},
+-- 	},
+-- })
 
 return theme
