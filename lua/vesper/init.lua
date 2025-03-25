@@ -288,7 +288,7 @@ local function set_groups()
 		["@lsp.typemod.function.readonly"] = { link = "@function" },
 
 		-- PHP/Laravel específico
-		["@constructor.php"] = { fg = colors.purple, bold = true }, -- UserFactory en rosa
+		["@constructor.php"] = { fg = colors.class_pink, italic = true }, -- 'UserFactory' en rosa
 		["@method.php"] = { fg = colors.greenLight }, -- Métodos (definition)
 		["@function.builtin.php"] = { fg = colors.orange }, -- fake()
 		["@property.php"] = { fg = colors.symbol }, -- $password
@@ -296,7 +296,9 @@ local function set_groups()
 		["@operator.php"] = { fg = colors.operator }, -- // =>
 		["@comment.php"] = { fg = colors.comment, italic = true }, -- Comentarios
 		["@keyword.php"] = { fg = "#FF79C6", italic = true }, -- Palabras reservadas en rosa
-		["@type.php"] = { fg = "#FF79C6" }, --
+		["@type.php"] = { fg = colors.type_purple }, -- 'Factory' en morado
+		["@type.qualifier.php"] = { fg = colors.type_purple }, -- Para 'extends'
+		["@punctuation.bracket.php"] = { fg = colors.fg }, -- Color normal para { }
 
 		VertSplit = { fg = colors.bg, bg = colors.bg }, -- Líneas verticales
 		WinSeparator = { fg = colors.bg, bg = colors.bg }, --
@@ -348,5 +350,27 @@ end
 vim.api.nvim_set_hl(0, "Normal", { bg = colors.bg })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1A1A1A" })
 vim.api.nvim_set_hl(0, "LineNr", { fg = "#7F7F7F", bg = colors.bg })
+
+vim.api.nvim_set_hl(0, "IndentBlanklineChar", { fg = "NONE", bg = "NONE" }) -- Desactiva líneas de indentación
+vim.api.nvim_set_hl(0, "IndentBlanklineContextChar", { fg = "NONE", bg = "NONE" })
+
+require("indent_blankline").setup({
+	char_highlight_list = {},
+	space_char_highlight_list = {},
+	show_current_context = false,
+	show_current_context_start = false,
+})
+
+-- Asegúrate de tener esto en tu configuración
+require("nvim-treesitter.configs").setup({
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = false,
+		custom_captures = {
+			["constructor.php"] = "@constructor.php",
+			["type.php"] = "@type.php",
+		},
+	},
+})
 
 return theme

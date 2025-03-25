@@ -52,6 +52,9 @@ local colors = {
 	warn = "#F59E0B", -- editorWarning.foreground
 	info = "#0369A1", -- editorInfo.foreground
 	hint = "#16A34A", -- editorHint.foreground
+
+	class_pink = "#FF79C6", -- Rosa para 'UserFactory'
+	type_purple = "#BD93F9", -- Morado para 'Factory'
 }
 
 return colors
