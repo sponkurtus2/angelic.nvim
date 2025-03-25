@@ -42,6 +42,11 @@ local colors = {
 	secondary = "#BFBAAA", -- statusBar.foreground
 	terminalbrightblack = "#323232", -- terminal.ansiBlack
 
+	-- I don't know
+	string = "#C3E88D", -- Verde claro para strings
+	keyword = "#BB86FC", -- Morado claro para keywords (public, return)
+	operator = "#E0E0E0", --
+
 	-- diagnostic colors
 	error = "#FCA5A5", -- editorError.foreground
 	warn = "#F59E0B", -- editorWarning.foreground
