@@ -317,11 +317,19 @@ local function set_groups()
 	end
 end
 
-function theme.setup(values)
-	setmetatable(config, { __index = vim.tbl_extend("force", config.defaults, values) })
+function theme.setup(user_config)
+	-- 1. Crea copia profunda de los defaults para evitar modificaciones accidentales
+	local defaults = vim.deepcopy(config.defaults)
 
-	theme.bufferline = { highlights = {} }
-	theme.bufferline.highlights = bufferline.highlights(config)
+	-- 2. Mezcla segura de configuraciones (maneja nil y tablas anidadas)
+	config = setmetatable({}, {
+		__index = vim.tbl_deep_extend("force", defaults, user_config or {}),
+	})
+
+	-- 3. Configuración de bufferline (con validación)
+	theme.bufferline = {
+		highlights = bufferline.highlights(config),
+	}
 end
 
 function theme.colorscheme()
