@@ -56,7 +56,6 @@ local function set_groups()
 		TermCursor = { link = "Cursor" },
 		TermCursorNC = { link = "Cursor" },
 		ErrorMsg = { fg = colors.error },
-		Winseparator = { link = "VertSplit" },
 		SignColumn = { link = "Normal" },
 		Folded = { fg = colors.fg, bg = colors.bgDarker },
 		FoldColumn = { link = "SignColumn" },
@@ -300,9 +299,6 @@ local function set_groups()
 		["@type.qualifier.php"] = { fg = colors.type_purple }, -- Para 'extends'
 		["@punctuation.bracket.php"] = { fg = colors.fg }, -- Color normal para { }
 
-		VertSplit = { fg = colors.bg, bg = colors.bg }, -- Líneas verticales
-		WinSeparator = { fg = colors.bg, bg = colors.bg }, --
-
 		-- Fondo más oscuro para áreas de código
 		Normal = { fg = colors.fg, bg = colors.bg },
 		NormalFloat = { bg = "#1A1A1A" }, -- Ventanas flotantes
@@ -350,9 +346,6 @@ end
 vim.api.nvim_set_hl(0, "Normal", { bg = colors.bg })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1A1A1A" })
 vim.api.nvim_set_hl(0, "LineNr", { fg = "#7F7F7F", bg = colors.bg })
-
-vim.api.nvim_set_hl(0, "IndentBlanklineChar", { fg = "NONE", bg = "NONE" }) -- Desactiva líneas de indentación
-vim.api.nvim_set_hl(0, "IndentBlanklineContextChar", { fg = "NONE", bg = "NONE" })
 
 -- Asegúrate de tener esto en tu configuración
 require("nvim-treesitter.configs").setup({
