@@ -1,1 +1,1 @@
-require("colors.angelic").colorscheme()
+require("angelic").colorscheme()
