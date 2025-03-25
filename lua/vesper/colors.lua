@@ -5,8 +5,8 @@ local colors = {
 	-- background colors
 	white = "#FFFFFF",
 	black = "#0A0A0A",
-	bg = "#1A1A2E", -- editor.background
-	bgDark = "#0A0A0A", -- titleBar.activeBackground
+	bg = "#121212", -- editor.background
+	bgDark = "#1E1E1E", -- titleBar.activeBackground
 	bgDarker = "#222222", -- list.activeSelectionBackground
 	bgFloat = "#0A0A0A", -- editorWidget.background
 	bgOption = "#222222", -- input.background
@@ -45,7 +45,7 @@ local colors = {
 	-- I don't know
 	string = "#C3E88D", -- Verde claro para strings
 	keyword = "#BB86FC", -- Morado claro para keywords (public, return)
-	operator = "#E0E0E0", --
+	operator = "#E0E0E0",
 
 	-- diagnostic colors
 	error = "#FCA5A5", -- editorError.foreground

@@ -39,7 +39,6 @@ local function set_groups()
 
 	local groups = {
 		-- base
-		Normal = { fg = colors.fg, bg = bg },
 		LineNr = { fg = colors.fgLineNr },
 		ColorColumn = { bg = utils.shade(colors.primary, 0.5, colors.bg) },
 		Conceal = {},
@@ -66,15 +65,12 @@ local function set_groups()
 		Substitute = { link = "IncSearch" },
 		CursorLineNr = { fg = colors.white },
 		MatchParen = { fg = colors.primary, bg = bg },
-		MatchParen = { fg = colors.primary, bg = bg },
 		ModeMsg = { link = "Normal" },
 		MsgArea = { link = "Normal" },
 		-- MsgSeparator = {},
 		MoreMsg = { fg = colors.greenLight },
 		NonText = { fg = utils.shade(colors.bg, 0.30) },
-		NormalFloat = { bg = colors.bgFloat },
 		NormalNC = { link = "Normal" },
-		Pmenu = { link = "NormalFloat" },
 		PmenuSel = { bg = colors.bgOption },
 		PmenuSbar = { bg = utils.shade(colors.greenLight, 0.5, colors.bg) },
 		PmenuThumb = { bg = utils.shade(colors.bg, 0.20) },
@@ -291,6 +287,21 @@ local function set_groups()
 		["@lsp.type.decorator"] = { link = "@label" },
 		["@lsp.typemod.function.declaration"] = { link = "@function" },
 		["@lsp.typemod.function.readonly"] = { link = "@function" },
+
+		-- PHP/Laravel específico
+		["@constructor.php"] = { fg = colors.purple, bold = true }, -- Clases (UserFactory)
+		["@method.php"] = { fg = colors.greenLight }, -- Métodos (definition)
+		["@function.builtin.php"] = { fg = colors.orange }, -- fake()
+		["@property.php"] = { fg = colors.symbol }, -- $password
+		["@string.php"] = { fg = colors.string }, -- Strings
+		["@operator.php"] = { fg = colors.operator }, -- // =>
+		["@keyword.php"] = { fg = colors.purple, italic = true }, -- // public, return
+		["@comment.php"] = { fg = colors.comment, italic = true }, -- Comentarios
+
+		-- Fondo más oscuro para áreas de código
+		Normal = { fg = colors.fg, bg = colors.bg },
+		NormalFloat = { bg = "#1A1A1A" }, -- Ventanas flotantes
+		Pmenu = { bg = "#1A1A1A" }, -- Menú de autocompletado
 	}
 
 	-- integrations
