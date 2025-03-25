@@ -59,7 +59,7 @@ require('angelic').setup({
 
 - **The `colorscheme()` function**
 
-This function can be used to set the colorscheme in your editor, however, if it doesn't work for you, you can always use `vim.cmd.colorscheme('vesper')`.
+This function can be used to set the colorscheme in your editor. However, if it doesn't work for you, you can always use `vim.cmd.colorscheme('vesper')`.
 
 ### Specifics for Some Plugins
 
@@ -73,9 +73,9 @@ require('bufferline').setup({
 })
 ```
 
-## Why this colors?
-You may be wondering why the colors changed a lot, and well, the colors are because of what I see on my girlfriend.
-She's a bit of this colors, and you can see it on her outfits, and even on her personality.
+## Why these colors?
+You may be wondering why the colors changed a lot. The colors are because of what I see in my girlfriend's outfits.
+She's uses quite a few of these colors, and you can see it in her outfits, and even in her personality.
 
 ## Contributing
 
