@@ -348,6 +348,7 @@ vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1A1A1A" })
 vim.api.nvim_set_hl(0, "LineNr", { fg = "#7F7F7F", bg = colors.bg })
 vim.api.nvim_set_hl(0, "@type.definition.php", { fg = "#FF79C6" })
 vim.api.nvim_set_hl(0, "@type.class.php", { fg = "#FF79C6" })
+vim.api.nvim_set_hl(0, "phpRegion", { fg = "#FF79C6", bold = false }) -- Rosa suave para clases
 
 -- Asegúrate de tener esto en tu configuración
 require("nvim-treesitter.configs").setup({
