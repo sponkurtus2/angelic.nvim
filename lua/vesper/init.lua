@@ -287,8 +287,8 @@ local function set_groups()
 		["@lsp.typemod.function.readonly"] = { link = "@function" },
 
 		-- PHP/Laravel específico
-		["@constructor.php"] = { fg = "#FF79C6", bold = false }, -- Rosa suave para clases
-		["@method.php"] = { fg = colors.greenLight }, -- Métodos (definition)
+		["@constructor.php"] = { fg = "#FF79C6", italic = false }, -- Rosa suave para clases
+		["@method.php"] = { fg = colors.greenLight, italic = true }, -- Métodos (definition)
 		["@function.builtin.php"] = { fg = colors.orange }, -- fake()
 		["@property.php"] = { fg = colors.symbol }, -- $password
 		["@string.php"] = { fg = colors.string }, -- Strings
