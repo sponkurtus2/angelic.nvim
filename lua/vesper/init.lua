@@ -287,7 +287,7 @@ local function set_groups()
 		["@lsp.typemod.function.readonly"] = { link = "@function" },
 
 		-- PHP/Laravel específico
-		["@constructor.php"] = { fg = colors.class_pink, italic = true }, -- 'UserFactory' en rosa
+		["@constructor.php"] = { fg = "#FF79C6", bold = false }, -- Rosa suave para clases
 		["@method.php"] = { fg = colors.greenLight }, -- Métodos (definition)
 		["@function.builtin.php"] = { fg = colors.orange }, -- fake()
 		["@property.php"] = { fg = colors.symbol }, -- $password
@@ -295,7 +295,7 @@ local function set_groups()
 		["@operator.php"] = { fg = colors.operator }, -- // =>
 		["@comment.php"] = { fg = colors.comment, italic = true }, -- Comentarios
 		["@keyword.php"] = { fg = "#FF79C6", italic = true }, -- Palabras reservadas en rosa
-		["@type.php"] = { fg = colors.type_purple }, -- 'Factory' en morado
+		["@type.php"] = { fg = "#BD93F9" }, -- Morado para tipos (Factory)
 		["@type.qualifier.php"] = { fg = colors.type_purple }, -- Para 'extends'
 		["@punctuation.bracket.php"] = { fg = colors.fg }, -- Color normal para { }
 
@@ -346,6 +346,8 @@ end
 vim.api.nvim_set_hl(0, "Normal", { bg = colors.bg })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1A1A1A" })
 vim.api.nvim_set_hl(0, "LineNr", { fg = "#7F7F7F", bg = colors.bg })
+vim.api.nvim_set_hl(0, "@type.definition.php", { fg = "#FF79C6" })
+vim.api.nvim_set_hl(0, "@type.class.php", { fg = "#FF79C6" })
 
 -- Asegúrate de tener esto en tu configuración
 require("nvim-treesitter.configs").setup({
