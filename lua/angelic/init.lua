@@ -351,15 +351,15 @@ vim.api.nvim_set_hl(0, "@type.class.php", { fg = "#FF79C6" })
 vim.api.nvim_set_hl(0, "phpRegion", { fg = "#FF79C6", bold = false }) -- Rosa suave para clases
 
 -- Asegúrate de tener esto en tu configuración
--- require("nvim-treesitter.configs").setup({
--- 	highlight = {
--- 		enable = true,
--- 		additional_vim_regex_highlighting = false,
--- 		custom_captures = {
--- 			["constructor.php"] = "@constructor.php",
--- 			["type.php"] = "@type.php",
--- 		},
--- 	},
--- })
+require("nvim-treesitter.configs").setup({
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = false,
+		custom_captures = {
+			["constructor.php"] = "@constructor.php",
+			["type.php"] = "@type.php",
+		},
+	},
+})
 
 return theme
