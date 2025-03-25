@@ -354,13 +354,6 @@ vim.api.nvim_set_hl(0, "LineNr", { fg = "#7F7F7F", bg = colors.bg })
 vim.api.nvim_set_hl(0, "IndentBlanklineChar", { fg = "NONE", bg = "NONE" }) -- Desactiva líneas de indentación
 vim.api.nvim_set_hl(0, "IndentBlanklineContextChar", { fg = "NONE", bg = "NONE" })
 
-require("indent_blankline").setup({
-	char_highlight_list = {},
-	space_char_highlight_list = {},
-	show_current_context = false,
-	show_current_context_start = false,
-})
-
 -- Asegúrate de tener esto en tu configuración
 require("nvim-treesitter.configs").setup({
 	highlight = {
