@@ -56,7 +56,6 @@ local function set_groups()
 		TermCursor = { link = "Cursor" },
 		TermCursorNC = { link = "Cursor" },
 		ErrorMsg = { fg = colors.error },
-		VertSplit = { fg = colors.border, bg = bg },
 		Winseparator = { link = "VertSplit" },
 		SignColumn = { link = "Normal" },
 		Folded = { fg = colors.fg, bg = colors.bgDarker },
@@ -289,14 +288,18 @@ local function set_groups()
 		["@lsp.typemod.function.readonly"] = { link = "@function" },
 
 		-- PHP/Laravel específico
-		["@constructor.php"] = { fg = colors.purple, bold = true }, -- Clases (UserFactory)
+		["@constructor.php"] = { fg = colors.purple, bold = true }, -- UserFactory en rosa
 		["@method.php"] = { fg = colors.greenLight }, -- Métodos (definition)
 		["@function.builtin.php"] = { fg = colors.orange }, -- fake()
 		["@property.php"] = { fg = colors.symbol }, -- $password
 		["@string.php"] = { fg = colors.string }, -- Strings
 		["@operator.php"] = { fg = colors.operator }, -- // =>
-		["@keyword.php"] = { fg = colors.purple, italic = true }, -- // public, return
 		["@comment.php"] = { fg = colors.comment, italic = true }, -- Comentarios
+		["@keyword.php"] = { fg = "#FF79C6", italic = true }, -- Palabras reservadas en rosa
+		["@type.php"] = { fg = "#FF79C6" }, --
+
+		VertSplit = { fg = colors.bg, bg = colors.bg }, -- Líneas verticales
+		WinSeparator = { fg = colors.bg, bg = colors.bg }, --
 
 		-- Fondo más oscuro para áreas de código
 		Normal = { fg = colors.fg, bg = colors.bg },
@@ -341,5 +344,9 @@ function theme.colorscheme()
 	set_terminal_colors()
 	set_groups()
 end
+
+vim.api.nvim_set_hl(0, "Normal", { bg = colors.bg })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1A1A1A" })
+vim.api.nvim_set_hl(0, "LineNr", { fg = "#7F7F7F", bg = colors.bg })
 
 return theme

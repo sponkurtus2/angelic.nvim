@@ -5,8 +5,8 @@ local colors = {
 	-- background colors
 	white = "#FFFFFF",
 	black = "#0A0A0A",
-	bg = "#121212", -- editor.background
-	bgDark = "#1E1E1E", -- titleBar.activeBackground
+	bg = "#0D0D0D", -- editor.background
+	bgDark = "#1A1A1A", -- titleBar.activeBackground
 	bgDarker = "#222222", -- list.activeSelectionBackground
 	bgFloat = "#0A0A0A", -- editorWidget.background
 	bgOption = "#222222", -- input.background
@@ -27,9 +27,9 @@ local colors = {
 	borderDarker = "#222222", -- editorGroupHeader.tabsBorder
 
 	-- ui colors
-	greenLight = "#03DAC6", -- terminal.ansiGreen
+	greenLight = "#50FA7B", -- terminal.ansiGreen
 	red = "#FCA5A5", -- errorForeground
-	purple = "#BB86FC", -- button.background
+	purple = "#FF79C6", -- button.background
 	redDark = "#FCA5A5", -- terminal.ansiRed
 	orange = "#FFB86C", -- terminal.ansiYellow
 	primary = "#C391E6", -- focusBorder (main accent color)
@@ -38,7 +38,7 @@ local colors = {
 	green = "#16A34A", -- gitDecoration.addedResourceForeground
 	yellowDark = "#EAB308", -- terminal.ansiYellow
 	purpleDark = "#C391E6", -- textLink.foreground
-	symbol = "#018786", -- terminal.ansiBrightCyan
+	symbol = "#BD93F9", -- terminal.ansiBrightCyan
 	secondary = "#BFBAAA", -- statusBar.foreground
 	terminalbrightblack = "#323232", -- terminal.ansiBlack
 
