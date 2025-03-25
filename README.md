@@ -4,6 +4,10 @@
 
 Port of the VS Code theme, [Vesper](https://github.com/raunofreiberg/vesper)
 
+<a href="https://dotfyle.com/sponkurtus2/angelicnvim"><img src="https://dotfyle.com/sponkurtus2/angelicnvim/badges/plugins?style=for-the-badge" /></a>
+<a href="https://dotfyle.com/sponkurtus2/angelicnvim"><img src="https://dotfyle.com/sponkurtus2/angelicnvim/badges/leaderkey?style=for-the-badge" /></a>
+<a href="https://dotfyle.com/sponkurtus2/angelicnvim"><img src="https://dotfyle.com/sponkurtus2/angelicnvim/badges/plugin-manager?style=for-the-badge" /></a>
+
 <br/>
 <br/>
 
