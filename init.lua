@@ -140,7 +140,7 @@ require("lazy").setup({
 			opts = {
 				options = {
 					icons_enabled = true,
-					colorscheme = "vesper",
+					colorscheme = "angelic",
 				},
 			},
 		},
