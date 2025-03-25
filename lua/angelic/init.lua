@@ -404,18 +404,6 @@ vim.api.nvim_set_hl(0, "@type.definition.php", { fg = "#FF79C6" })
 vim.api.nvim_set_hl(0, "@type.class.php", { fg = "#FF79C6" })
 vim.api.nvim_set_hl(0, "phpRegion", { fg = "#FF79C6", bold = false }) -- Rosa suave para clases
 
--- Asegúrate de tener esto en tu configuración
-require("nvim-treesitter.configs").setup({
-	highlight = {
-		enable = true,
-		additional_vim_regex_highlighting = false,
-		custom_captures = {
-			["constructor.php"] = "@constructor.php",
-			["type.php"] = "@type.php",
-		},
-	},
-})
-
 local lazypath = vim.fn.stdpath("data") .. "/development/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -432,6 +420,7 @@ vim.opt.rtp:prepend(lazypath)
 vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "<leader>gg", ":Neogit<Return>", { noremap = true, silent = true })
 
+-- Configuración del tema
 theme.setup({
 	transparent = false,
 	italics = {
@@ -443,5 +432,19 @@ theme.setup({
 	},
 })
 
+-- Aplicar el tema
 theme.colorscheme()
--- return theme
+
+-- Configuración de Treesitter (debe ir después de cargar el tema)
+require("nvim-treesitter.configs").setup({
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = false,
+		custom_captures = {
+			["constructor.php"] = "@constructor.php",
+			["type.php"] = "@type.php",
+		},
+	},
+})
+
+return theme
