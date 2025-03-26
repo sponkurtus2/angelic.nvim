@@ -319,16 +319,17 @@ end
 
 function theme.setup(user_config)
 	-- 1. Crea copia profunda de los defaults para evitar modificaciones accidentales
-	local defaults = vim.deepcopy(config.defaults)
+	local defaults = vim.deepcopy(config.defaults or {}) -- usa {} si no está definido
 
 	-- 2. Mezcla segura de configuraciones (maneja nil y tablas anidadas)
-	config = setmetatable({}, {
-		__index = vim.tbl_deep_extend("force", defaults, user_config or {}),
-	})
+	local merged_config = vim.tbl_deep_extend("force", defaults, user_config or {})
+
+	-- Si es necesario, asigna merged_config a otra parte o úsalo en lugar de sobreescribir config
+	theme.config = merged_config
 
 	-- 3. Configuración de bufferline (con validación)
 	theme.bufferline = {
-		highlights = bufferline.highlights(config),
+		highlights = bufferline.highlights(merged_config),
 	}
 end
 
