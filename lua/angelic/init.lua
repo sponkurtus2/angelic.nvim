@@ -3,7 +3,7 @@ local config = require("angelic.config")
 local utils = require("angelic.utils")
 local bufferline = require("angelic.integrations.bufferline")
 local cmp = require("angelic.integrations.cmp")
-local theme = {} -- teste
+local theme = {}
 
 local function set_terminal_colors()
 	vim.g.terminal_color_0 = colors.bg
@@ -351,25 +351,27 @@ function theme.colorscheme()
 	set_groups()
 end
 
-vim.api.nvim_set_hl(0, "Normal", { bg = colors.bg })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1A1A1A" })
-vim.api.nvim_set_hl(0, "LineNr", { fg = "#7F7F7F", bg = colors.bg })
-vim.api.nvim_set_hl(0, "@type.definition.php", { fg = "#FF79C6" })
-vim.api.nvim_set_hl(0, "@type.class.php", { fg = "#FF79C6" })
-vim.api.nvim_set_hl(0, "phpRegion", { fg = "#FF79C6", bold = false }) -- Rosa suave para clases
+-- Probar quitar
+-- vim.api.nvim_set_hl(0, "Normal", { bg = colors.bg })
+-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1A1A1A" })
+-- vim.api.nvim_set_hl(0, "LineNr", { fg = "#7F7F7F", bg = colors.bg })
+-- vim.api.nvim_set_hl(0, "@type.definition.php", { fg = "#FF79C6" })
+-- vim.api.nvim_set_hl(0, "@type.class.php", { fg = "#FF79C6" })
+-- vim.api.nvim_set_hl(0, "phpRegion", { fg = "#FF79C6", bold = false }) -- Rosa suave para clases
 
-local lazypath = vim.fn.stdpath("data") .. "/development/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
-end
-vim.opt.rtp:prepend(lazypath)
+-- Probar quitar
+-- local lazypath = vim.fn.stdpath("data") .. "/development/lazy/lazy.nvim"
+-- if not vim.loop.fs_stat(lazypath) then
+-- 	vim.fn.system({
+-- 		"git",
+-- 		"clone",
+-- 		"--filter=blob:none",
+-- 		"https://github.com/folke/lazy.nvim.git",
+-- 		"--branch=stable", -- latest stable release
+-- 		lazypath,
+-- 	})
+-- end
+-- vim.opt.rtp:prepend(lazypath)
 
 -- Configuración del tema
 theme.setup({
