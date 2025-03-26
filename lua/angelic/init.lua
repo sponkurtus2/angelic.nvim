@@ -1,49 +1,3 @@
-vim.opt.cursorline = true
-vim.opt.cmdheight = 1
-vim.opt.encoding = "utf-8"
-vim.scriptencoding = "utf-8"
-vim.opt.fileencoding = "utf-8"
-vim.opt.expandtab = true
-vim.opt.hidden = true
-vim.opt.hlsearch = true
-vim.opt.ignorecase = true
-vim.opt.incsearch = true
-vim.opt.laststatus = 3
-vim.opt.linebreak = true
-vim.opt.mouse = "a"
-vim.opt.path:append({ "**" })
-vim.opt.relativenumber = true
-vim.opt.scrolloff = 10
-vim.opt.shiftwidth = 2
-vim.opt.shortmess:append("c")
-vim.opt.showcmd = true
-vim.opt.showmatch = true
-vim.opt.smartcase = true
-vim.opt.smartindent = true
-vim.opt.softtabstop = 2
-vim.opt.splitbelow = true
-vim.opt.splitright = true
-vim.opt.tabstop = 2
-vim.opt.termguicolors = true
-vim.opt.timeoutlen = 600
-vim.opt.title = true
-vim.opt.updatetime = 1000
-vim.opt.wrap = false
-vim.opt.number = true
-vim.opt.ruler = false
-vim.opt.smarttab = true
-vim.opt.completeopt = { "menu", "menuone", "noselect", "noinsert" }
-vim.opt.equalalways = false
-vim.opt.autoindent = true
-vim.opt.breakindent = true
-vim.opt.formatoptions:append({ "r" })
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undofile = true
-vim.opt.shell = "zsh"
-vim.opt.belloff = "all"
-vim.g.mapleader = " "
-
 local colors = require("angelic.colors")
 local config = require("angelic.config")
 local utils = require("angelic.utils")
@@ -416,9 +370,6 @@ if not vim.loop.fs_stat(lazypath) then
 	})
 end
 vim.opt.rtp:prepend(lazypath)
-
-vim.keymap.set("i", "<C-c>", "<Esc>")
-vim.keymap.set("n", "<leader>gg", ":Neogit<Return>", { noremap = true, silent = true })
 
 -- Configuración del tema
 theme.setup({
