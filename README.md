@@ -59,7 +59,7 @@ require('angelic').setup({
 
 - **The `colorscheme()` function**
 
-This function can be used to set the colorscheme in your editor. However, if it doesn't work for you, you can always use `vim.cmd.colorscheme('vesper')`.
+This function can be used to set the colorscheme in your editor. However, if it doesn't work for you, you can always use `vim.cmd.colorscheme('angelic')`.
 
 ### Specifics for Some Plugins
 
