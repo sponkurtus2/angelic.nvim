@@ -389,15 +389,16 @@ theme.setup({
 theme.colorscheme()
 
 -- Configuración de Treesitter (debe ir después de cargar el tema)
-require("nvim-treesitter.configs").setup({
-	highlight = {
-		enable = true,
-		additional_vim_regex_highlighting = false,
-		custom_captures = {
-			["constructor.php"] = "@constructor.php",
-			["type.php"] = "@type.php",
-		},
-	},
-})
+-- Probar quitar
+-- require("nvim-treesitter.configs").setup({
+-- 	highlight = {
+-- 		enable = true,
+-- 		additional_vim_regex_highlighting = false,
+-- 		custom_captures = {
+-- 			["constructor.php"] = "@constructor.php",
+-- 			["type.php"] = "@type.php",
+-- 		},
+-- 	},
+-- })
 
 return theme
