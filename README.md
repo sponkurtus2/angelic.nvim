@@ -74,7 +74,7 @@ require('bufferline').setup({
 ```
 
 ## Why these colors?
-You may be wondering why the colors changed a lot. The colors are because of what I see in my girlfriend's outfits.
+You may be wondering why the colors changed a lot. The colors are because of what I see in my (ex)girlfriend's outfits.
 She's uses quite a few of these colors, and you can see it in her outfits, and even in her personality.
 
 ## Contributing
